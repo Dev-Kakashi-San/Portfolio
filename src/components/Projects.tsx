@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowUpRight, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -33,14 +32,14 @@ const ProjectCard: React.FC<ProjectProps> = ({
     >
       {/* Project Image/Preview */}
       <div className={cn(
-        "md:col-span-3 relative group overflow-hidden rounded-lg border border-white/10",
+        "md:col-span-3 relative group overflow-hidden rounded-2xl border border-white/20 shadow-lg",
         reverse ? "md:col-start-3" : "md:col-start-1"
       )}>
-        <div className="aspect-video bg-gradient-to-tr from-accent/20 to-secondary/30 relative overflow-hidden rounded-lg">
+        <div className="aspect-video bg-gradient-to-tr from-accent/30 to-secondary/40 relative overflow-hidden rounded-2xl">
           <div className="absolute inset-0 flex items-center justify-center text-xl font-semibold text-foreground/30">
             {title}
           </div>
-          <div className="absolute inset-0 bg-background/20 group-hover:bg-background/10 transition-colors duration-300"></div>
+          <div className="absolute inset-0 bg-background/10 group-hover:bg-transparent transition-colors duration-300"></div>
         </div>
       </div>
       
@@ -51,15 +50,15 @@ const ProjectCard: React.FC<ProjectProps> = ({
       )}>
         <p className="text-accent mb-2 text-sm">Featured Project</p>
         <h3 className="text-xl font-bold mb-3">{title}</h3>
-        <div className="glass-card p-4 rounded-lg mb-4">
-          <p className="text-foreground/70">{description}</p>
+        <div className="glass-card p-4 rounded-xl mb-4">
+          <p className="text-foreground/80">{description}</p>
         </div>
         <div className={cn(
           "flex flex-wrap gap-2 mb-4",
           reverse ? "md:justify-end" : "md:justify-start"
         )}>
           {technologies.map((tech) => (
-            <span key={tech} className="text-sm text-foreground/50">
+            <span key={tech} className="text-sm text-foreground/60 bg-accent/10 px-3 py-1 rounded-full">
               {tech}
             </span>
           ))}
@@ -142,7 +141,7 @@ const Projects = () => {
           <p className="text-foreground/70 mb-6">
             Interested in seeing more of my work?
           </p>
-          <Button asChild variant="outline" className="rounded-full">
+          <Button asChild variant="outline" className="rounded-full hover:bg-accent/20 hover:text-accent">
             <a 
               href="https://github.com/dev-tushar-sh" 
               target="_blank" 

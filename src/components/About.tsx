@@ -30,7 +30,7 @@ const About = () => {
             <div className="relative z-10 overflow-hidden rounded-md border-2 border-accent/20">
               <div className="relative aspect-square bg-muted overflow-hidden rounded-md">
                 <div className="absolute inset-0 bg-gradient-to-tr from-background to-transparent opacity-60 mix-blend-overlay"></div>
-                <div className="h-full w-full bg-accent/10 flex items-center justify-center text-4xl font-bold text-accent/30">TS</div>
+                <img src="../../public/Chibi Tushar.png"/>
               </div>
             </div>
             <div className="absolute -inset-0.5 rounded-md bg-gradient-to-tr from-accent to-primary/5 opacity-30 blur group-hover:opacity-60 transition duration-300 -z-10"></div>

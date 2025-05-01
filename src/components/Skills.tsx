@@ -26,28 +26,40 @@ const SkillItem: React.FC<SkillItemProps> = ({ name, level, index }) => {
 };
 
 const Skills = () => {
-  const frontendSkills = [
-    { name: "HTML/CSS", level: 90 },
+  const mainskills = [
+    { name: "C++", level: 85 },
+    { name: "Python", level: 85 },
     { name: "JavaScript", level: 85 },
-    { name: "React", level: 80 },
-    { name: "TypeScript", level: 75 },
-    { name: "Tailwind CSS", level: 85 }
+    { name: "Data Structure and Algorithms", level: 90 },
+    { name: "Machine Learning", level: 85 },
+    { name: "OOPs", level: 80 },
+    { name: "DBMS", level: 75 },
+    { name: "OS", level: 85 }
   ];
 
   const backendSkills = [
     { name: "Node.js", level: 75 },
-    { name: "Express", level: 70 },
+    { name: "Django", level: 70 },
+    { name: "Flask", level: 70 },
+    { name: "Golang", level: 70 },
     { name: "MongoDB", level: 65 },
-    { name: "Firebase", level: 70 },
-    { name: "RESTful APIs", level: 80 }
+    { name: "MySQL", level: 80 }
   ];
 
   const otherSkills = [
-    { name: "Git/GitHub", level: 85 },
-    { name: "Responsive Design", level: 90 },
-    { name: "UI/UX Principles", level: 75 },
-    { name: "Performance Optimization", level: 70 },
-    { name: "Testing", level: 65 }
+    { name: "Twilio", level: 85 },
+    { name: "Zapier", level: 85 },
+    { name: "Elastic Search", level: 85 },
+    { name: "Problem Solving", level: 75 },
+    // { name: "", level: 70 },
+    // { name: "Testing", level: 65 }
+  ];
+  
+  const Tools = [
+    { name: "Git/Github", level: 90 },
+    { name: "Postman", level: 90 },
+    { name: "Mongo Atlas", level: 90 },
+    { name: "Termius", level: 90 },
   ];
 
   return (
@@ -60,9 +72,9 @@ const Skills = () => {
         
         <div className="grid gap-12">
           <div>
-            <h3 className="text-xl font-semibold mb-4 text-accent">Frontend Development</h3>
+            {/* <h3 className="text-xl font-semibold mb-4 text-accent">Python</h3> */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {frontendSkills.map((skill, index) => (
+              {mainskills.map((skill, index) => (
                 <SkillItem 
                   key={skill.name} 
                   name={skill.name} 
@@ -81,7 +93,7 @@ const Skills = () => {
                   key={skill.name} 
                   name={skill.name} 
                   level={skill.level} 
-                  index={index + frontendSkills.length}
+                  index={index + mainskills.length}
                 />
               ))}
             </div>
@@ -95,7 +107,21 @@ const Skills = () => {
                   key={skill.name} 
                   name={skill.name} 
                   level={skill.level} 
-                  index={index + frontendSkills.length + backendSkills.length}
+                  index={index + mainskills.length + backendSkills.length}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-4 text-accent">Tools</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {Tools.map((skill, index) => (
+                <SkillItem 
+                  key={skill.name} 
+                  name={skill.name} 
+                  level={skill.level} 
+                  index={index}
                 />
               ))}
             </div>

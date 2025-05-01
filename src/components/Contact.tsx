@@ -25,8 +25,8 @@ const Contact = () => {
             </div>
             <div>
               <h4 className="font-medium">Email</h4>
-              <a href="mailto:contact@tusharsharma.dev" className="text-foreground/70 hover:text-accent transition-colors">
-                contact@tusharsharma.dev
+              <a href="mailto:tusharsharma3216@gmail.com" className="text-foreground/70 hover:text-accent transition-colors">
+              tusharsharma3216@gmail.com
               </a>
             </div>
           </div>
@@ -37,8 +37,8 @@ const Contact = () => {
             </div>
             <div>
               <h4 className="font-medium">Phone</h4>
-              <a href="tel:+919876543210" className="text-foreground/70 hover:text-accent transition-colors">
-                +91 9876543210
+              <a href="tel:+916376844453" className="text-foreground/70 hover:text-accent transition-colors">
+                +91 6376844453
               </a>
             </div>
           </div>

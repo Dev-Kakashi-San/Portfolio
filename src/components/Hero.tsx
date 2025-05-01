@@ -21,7 +21,7 @@ const Hero = () => {
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground/80 mb-6 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             I build things for the web.
           </h2>
-          <div className="typing-container animate-typing max-w-xl mb-8 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <div className="typing-container animate-typing max-w-2xl mb-8 animate-fade-in" style={{ animationDelay: '0.9s' }}>
             <p className="text-foreground/70 text-lg">
               I'm a software developer specializing in building exceptional digital experiences.
             </p>
@@ -41,7 +41,7 @@ const Hero = () => {
             <a href="https://linkedin.com/in/tushar-sharma" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-accent transition-colors">
               <Linkedin size={24} />
             </a>
-            <a href="mailto:contact@tusharsharma.dev" className="text-foreground/70 hover:text-accent transition-colors">
+            <a href="mailto:tusharsharma3216@gmail.com" className="text-foreground/70 hover:text-accent transition-colors">
               <Mail size={24} />
             </a>
           </div>

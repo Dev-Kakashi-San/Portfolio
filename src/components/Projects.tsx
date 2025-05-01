@@ -1,7 +1,13 @@
-import React from 'react';
-import { ArrowUpRight, Github } from 'lucide-react';
+
+import React, { useState } from 'react';
+import { ArrowUpRight, Github, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { 
+  Dialog, 
+  DialogContent,
+  DialogTrigger
+} from '@/components/ui/dialog';
 
 interface ProjectProps {
   title: string;
@@ -9,6 +15,7 @@ interface ProjectProps {
   technologies: string[];
   githubLink: string;
   demoLink: string;
+  imageSrc: string;
   reverse?: boolean;
   index: number;
 }
@@ -18,7 +25,8 @@ const ProjectCard: React.FC<ProjectProps> = ({
   description, 
   technologies, 
   githubLink, 
-  demoLink, 
+  demoLink,
+  imageSrc,
   reverse = false,
   index
 }) => {
@@ -31,17 +39,39 @@ const ProjectCard: React.FC<ProjectProps> = ({
       style={{ animationDelay: `${0.2 * index}s` }}
     >
       {/* Project Image/Preview */}
-      <div className={cn(
-        "md:col-span-3 relative group overflow-hidden rounded-2xl border border-white/20 shadow-lg",
-        reverse ? "md:col-start-3" : "md:col-start-1"
-      )}>
-        <div className="aspect-video bg-gradient-to-tr from-accent/30 to-secondary/40 relative overflow-hidden rounded-2xl">
-          <div className="absolute inset-0 flex items-center justify-center text-xl font-semibold text-foreground/30">
-            {title}
+      <Dialog>
+        <DialogTrigger asChild>
+          <div className={cn(
+            "md:col-span-3 relative group overflow-hidden rounded-2xl border border-white/20 shadow-lg cursor-pointer",
+            reverse ? "md:col-start-3" : "md:col-start-1"
+          )}>
+            <div className="aspect-video bg-gradient-to-tr from-accent/30 to-secondary/40 relative overflow-hidden rounded-2xl">
+              <img 
+                src={imageSrc} 
+                alt={title} 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-background/10 group-hover:bg-transparent transition-colors duration-300 flex items-center justify-center">
+                <div className="bg-background/60 px-4 py-2 rounded-full flex items-center gap-2 backdrop-blur-sm">
+                  <ExternalLink size={16} className="text-accent" />
+                  <span className="text-sm font-medium">View Project</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="absolute inset-0 bg-background/10 group-hover:bg-transparent transition-colors duration-300"></div>
-        </div>
-      </div>
+        </DialogTrigger>
+        <DialogContent className="w-full max-w-4xl p-0 overflow-hidden bg-card">
+          <img 
+            src={imageSrc} 
+            alt={title} 
+            className="w-full h-auto" 
+          />
+          <div className="p-6">
+            <h3 className="text-xl font-bold mb-3">{title}</h3>
+            <p className="text-foreground/80 mb-4">{description}</p>
+          </div>
+        </DialogContent>
+      </Dialog>
       
       {/* Project Details */}
       <div className={cn(
@@ -96,21 +126,24 @@ const Projects = () => {
       description: "A personal portfolio website built with React and Tailwind CSS, featuring a modern UI and smooth animations.",
       technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
       githubLink: "https://github.com/dev-tushar-sh/Portfolio",
-      demoLink: "https://dev-tushar-sh.github.io/Portfolio/"
+      demoLink: "https://dev-tushar-sh.github.io/Portfolio/",
+      imageSrc: "/public/fulls/01.png"
     },
     {
       title: "E-commerce Platform",
       description: "A full-featured e-commerce platform with product listings, cart functionality, and secure checkout.",
       technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
       githubLink: "https://github.com/dev-tushar-sh/ecommerce-project",
-      demoLink: "https://ecommerce-demo.tusharsharma.dev"
+      demoLink: "https://ecommerce-demo.tusharsharma.dev",
+      imageSrc: "/public/fulls/02.png"
     },
     {
       title: "Weather Dashboard",
       description: "A weather application that displays current weather and forecasts for any location using weather APIs.",
       technologies: ["JavaScript", "HTML/CSS", "WeatherAPI", "Responsive Design"],
       githubLink: "https://github.com/dev-tushar-sh/weather-app",
-      demoLink: "https://weather-app.tusharsharma.dev"
+      demoLink: "https://weather-app.tusharsharma.dev",
+      imageSrc: "/public/fulls/03.png"
     }
   ];
 
@@ -131,6 +164,7 @@ const Projects = () => {
               technologies={project.technologies}
               githubLink={project.githubLink}
               demoLink={project.demoLink}
+              imageSrc={project.imageSrc}
               reverse={index % 2 !== 0}
               index={index}
             />

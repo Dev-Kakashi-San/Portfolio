@@ -2,6 +2,34 @@
 import React from 'react';
 import { Mail, Github, Linkedin, Phone } from 'lucide-react';
 
+interface ContactCardProps {
+  icon: React.ReactNode;
+  title: string;
+  value: string;
+  href: string;
+}
+
+const ContactCard = ({ icon, title, value, href }: ContactCardProps) => {
+  return (
+    <a 
+      href={href}
+      target={href.startsWith('http') ? '_blank' : undefined}
+      rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+      className="flex items-center gap-4 glass-card p-6 rounded-xl animate-fade-in transition-all duration-300 hover:bg-accent/10 hover:border-accent/30 cursor-pointer group"
+    >
+      <div className="bg-accent/20 p-3 rounded-full group-hover:bg-accent/30 transition-colors">
+        {icon}
+      </div>
+      <div>
+        <h4 className="font-medium">{title}</h4>
+        <span className="text-foreground/70 group-hover:text-accent transition-colors">
+          {value}
+        </span>
+      </div>
+    </a>
+  );
+};
+
 const Contact = () => {
   return (
     <section id="contact" className="section-spacing px-6 bg-secondary/5">
@@ -19,53 +47,33 @@ const Contact = () => {
         </div>
         
         <div className="grid md:grid-cols-2 gap-12 max-w-3xl mx-auto">
-          <div className="flex items-center gap-4 glass-card p-6 rounded-xl animate-fade-in">
-            <div className="bg-accent/20 p-3 rounded-full">
-              <Mail size={24} className="text-accent" />
-            </div>
-            <div>
-              <h4 className="font-medium">Email</h4>
-              <a href="mailto:tusharsharma3216@gmail.com" className="text-foreground/70 hover:text-accent transition-colors">
-              tusharsharma3216@gmail.com
-              </a>
-            </div>
-          </div>
+          <ContactCard 
+            icon={<Mail size={24} className="text-accent" />}
+            title="Email"
+            value="tusharsharma3216@gmail.com"
+            href="mailto:tusharsharma3216@gmail.com"
+          />
           
-          <div className="flex items-center gap-4 glass-card p-6 rounded-xl animate-fade-in">
-            <div className="bg-accent/20 p-3 rounded-full">
-              <Phone size={24} className="text-accent" />
-            </div>
-            <div>
-              <h4 className="font-medium">Phone</h4>
-              <a href="tel:+916376844453" className="text-foreground/70 hover:text-accent transition-colors">
-                +91 6376844453
-              </a>
-            </div>
-          </div>
+          <ContactCard 
+            icon={<Phone size={24} className="text-accent" />}
+            title="Phone"
+            value="+91 6376844453"
+            href="tel:+916376844453"
+          />
           
-          <div className="flex items-center gap-4 glass-card p-6 rounded-xl animate-fade-in">
-            <div className="bg-accent/20 p-3 rounded-full">
-              <Github size={24} className="text-accent" />
-            </div>
-            <div>
-              <h4 className="font-medium">GitHub</h4>
-              <a href="https://github.com/dev-tushar-sh" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-accent transition-colors">
-                github.com/dev-tushar-sh
-              </a>
-            </div>
-          </div>
+          <ContactCard 
+            icon={<Github size={24} className="text-accent" />}
+            title="GitHub"
+            value="github.com/dev-tushar-sh"
+            href="https://github.com/dev-tushar-sh"
+          />
           
-          <div className="flex items-center gap-4 glass-card p-6 rounded-xl animate-fade-in">
-            <div className="bg-accent/20 p-3 rounded-full">
-              <Linkedin size={24} className="text-accent" />
-            </div>
-            <div>
-              <h4 className="font-medium">LinkedIn</h4>
-              <a href="https://linkedin.com/in/tushar-sharma" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-accent transition-colors">
-                linkedin.com/in/tushar-sharma
-              </a>
-            </div>
-          </div>
+          <ContactCard 
+            icon={<Linkedin size={24} className="text-accent" />}
+            title="LinkedIn"
+            value="linkedin.com/in/tushar-sharma"
+            href="https://linkedin.com/in/tushar-sharma"
+          />
         </div>
       </div>
     </section>

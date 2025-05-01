@@ -14,7 +14,6 @@ interface ProjectProps {
   description: string;
   technologies: string[];
   githubLink: string;
-  demoLink: string;
   imageSrc: string;
   reverse?: boolean;
   index: number;
@@ -24,8 +23,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
   title, 
   description, 
   technologies, 
-  githubLink, 
-  demoLink,
+  githubLink,
   imageSrc,
   reverse = false,
   index
@@ -105,14 +103,6 @@ const ProjectCard: React.FC<ProjectProps> = ({
           >
             <Github size={20} />
           </a>
-          <a 
-            href={demoLink} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-foreground/70 hover:text-accent transition-colors"
-          >
-            <ArrowUpRight size={20} />
-          </a>
         </div>
       </div>
     </div>
@@ -122,36 +112,68 @@ const ProjectCard: React.FC<ProjectProps> = ({
 const Projects = () => {
   const projects = [
     {
-      title: "Portfolio Website",
-      description: "A personal portfolio website built with React and Tailwind CSS, featuring a modern UI and smooth animations.",
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-      githubLink: "https://github.com/dev-tushar-sh/Portfolio",
-      demoLink: "https://dev-tushar-sh.github.io/Portfolio/",
+      title: "Backend Developer — Current Company",
+      description: `As a backend developer, I led the development of critical features and system integrations. I built the entire rating & review system, implemented advanced monitoring tools (Grafana, Elastic APM, Metricbeat), and handled third-party automation with Twilio, Zapier, and WABA. I’ve optimized performance for availability and search systems using Elasticsearch, resolved server/Docker-related issues, and built admin panel modules for review analytics. I also integrated OpenAI APIs for dynamic content/image generation and developed real-time systems using WebSockets and cron jobs.`,
+      technologies: [
+        "Node.js", "Express", "MongoDB", "Docker", "Elasticsearch",
+        "Grafana", "Elastic APM", "Metricbeat", "Twilio", "Zapier", "WABA",
+        "Google Analytics", "OpenAI API", "AWS", "JavaScript", "Socket.IO",
+        "Cron Jobs", "Admin Panels", "Backend Architecture"
+      ],
+      githubLink: "",
+      demoLink: "",
+      imageSrc: "/public/fulls/company-logo.png"
+    },       
+    {
+      title: "E-Commerce Website",
+      description:
+        "Developed a fully functional e-commerce platform using Django and Python. This project includes essential features like user authentication, shopping cart, and order tracking. It also integrates secure session management and provides a simple, responsive UI built with Bootstrap. The backend is powered by MySQLite, ensuring lightweight yet effective database operations ideal for small-scale deployments.",
+      technologies: ["Django", "Python", "MySQLite", "Bootstrap", "JavaScript", "HTML", "CSS"],
+      githubLink: "https://github.com/Dev-Tushar-sh/TKart-Ecommerce-Website",
       imageSrc: "/public/fulls/01.png"
     },
     {
-      title: "E-commerce Platform",
-      description: "A full-featured e-commerce platform with product listings, cart functionality, and secure checkout.",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
-      githubLink: "https://github.com/dev-tushar-sh/ecommerce-project",
-      demoLink: "https://ecommerce-demo.tusharsharma.dev",
+      title: "Social Media Platform",
+      description:
+        "Built a mini social media web app that supports features like user registration, following other users, posting content, liking posts, and maintaining a personalized feed. This project was developed using Django and Python with PostgreSQL as the backend. It focuses on implementing relational database concepts and efficient data handling while maintaining user experience with proper session and state management.",
+      technologies: ["Django", "Python", "PostgreSQL", "HTML", "CSS", "JavaScript"],
+      githubLink: "https://github.com/Dev-Tushar-sh/CosmoLinks-Social-Media-Website",
       imageSrc: "/public/fulls/02.png"
     },
     {
-      title: "Weather Dashboard",
-      description: "A weather application that displays current weather and forecasts for any location using weather APIs.",
-      technologies: ["JavaScript", "HTML/CSS", "WeatherAPI", "Responsive Design"],
-      githubLink: "https://github.com/dev-tushar-sh/weather-app",
-      demoLink: "https://weather-app.tusharsharma.dev",
+      title: "Movie Recommender System",
+      description:
+        "A content-based recommendation system that suggests movies based on the description and genres of previously liked films. Implemented using machine learning techniques and libraries like Scikit-learn and Pandas. The user interface is built with Streamlit, making it fast to prototype and demo the ML pipeline. This project demonstrates my ability to work with ML models and deploy them via a lightweight web app.",
+      technologies: ["Python", "Pandas", "Scikit-learn", "Streamlit", "NLP"],
+      githubLink: "https://github.com/Dev-Tushar-sh/Movies-Recommender-System",
       imageSrc: "/public/fulls/03.png"
-    }
+    },
+    {
+  title: "Virtual AI Desktop Assistant (VAIDA)",
+  description:
+    `Built a Python-powered AI assistant capable of voice-based interaction and multitasking.
+    Integrated speech recognition, text-to-speech, and natural language understanding using OpenAI's GPT APIs.
+    Supported voice commands for opening applications, websites, sending emails, and web searching.
+    Implemented features like language translation, creative content generation, and informative Q&A.
+    Used machine learning algorithms for facial recognition of known users.
+    Leveraged modules like pyttsx3, speech_recognition, wikipedia, pywhatkit, os, datetime, and pyautogui.`
+  ,
+  technologies: [
+    "Python", "OpenAI API", "pyttsx3", "speech_recognition", "pyautogui",
+    "pywhatkit", "os", "datetime", "wikipedia", "Machine Learning", "Face Recognition"
+  ],
+  githubLink: "https://github.com/Dev-Tushar-sh/Virtual-AI-Desktop-Assistant",
+  demoLink: "",
+  imageSrc: "/public/fulls/vaida-demo.png"
+}
+
   ];
 
   return (
     <section id="projects" className="section-spacing px-6">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold mb-12 flex items-center gap-2">
-          <span className="text-accent">03.</span> Projects
+          <span className="text-accent">03.</span> Work & Projects
           <div className="h-px bg-foreground/20 flex-grow ml-4"></div>
         </h2>
         
@@ -163,7 +185,6 @@ const Projects = () => {
               description={project.description}
               technologies={project.technologies}
               githubLink={project.githubLink}
-              demoLink={project.demoLink}
               imageSrc={project.imageSrc}
               reverse={index % 2 !== 0}
               index={index}

@@ -35,7 +35,7 @@ const Navbar = () => {
           <a href="#home" className="nav-link">Home</a>
           <a href="#about" className="nav-link">About</a>
           <a href="#skills" className="nav-link">Skills</a>
-          <a href="#projects" className="nav-link">Projects</a>
+          <a href="#projects" className="nav-link">Work & Projects</a>
           <a href="#contact" className="nav-link">Contact</a>
         </nav>
 
@@ -57,7 +57,7 @@ const Navbar = () => {
         <a href="#home" className="text-xl" onClick={toggleMenu}>Home</a>
         <a href="#about" className="text-xl" onClick={toggleMenu}>About</a>
         <a href="#skills" className="text-xl" onClick={toggleMenu}>Skills</a>
-        <a href="#projects" className="text-xl" onClick={toggleMenu}>Projects</a>
+        <a href="#projects" className="text-xl" onClick={toggleMenu}>Work & Projects</a>
         <a href="#contact" className="text-xl" onClick={toggleMenu}>Contact</a>
       </div>
     </header>

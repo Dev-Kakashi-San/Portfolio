@@ -72,7 +72,7 @@ const Contact = () => {
             icon={<Linkedin size={24} className="text-accent" />}
             title="LinkedIn"
             value="linkedin.com/in/tushar-sharma"
-            href="https://linkedin.com/in/tushar-sharma"
+            href="https://linkedin.com/in/tushar-sharma-835ab31b8"
           />
         </div>
       </div>

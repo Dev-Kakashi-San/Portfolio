@@ -1,5 +1,4 @@
-
-import React, { useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 
 interface SkillItemProps {
@@ -9,20 +8,51 @@ interface SkillItemProps {
 }
 
 const SkillItem: React.FC<SkillItemProps> = ({ name, level, index }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const segments = 10; // Total segments in the skill bar
+  const filledSegments = Math.floor(level / 10); // How many segments should be filled
+
+  // Animation state for filled segments
+  const [animatedFill, setAnimatedFill] = useState(0);
+
   return (
     <div 
       className="glass-card p-4 rounded-lg animate-fade-in" 
       style={{ animationDelay: `${0.1 * index}s` }}
+      onMouseEnter={() => {
+        setIsHovered(true);
+        // Animate segments filling one by one
+        let currentSegment = 0;
+        const interval = setInterval(() => {
+          if (currentSegment <= filledSegments) {
+            setAnimatedFill(currentSegment);
+            currentSegment++;
+          } else {
+            clearInterval(interval);
+          }
+        }, 100);
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setAnimatedFill(0);
+      }}
     >
       <h3 className="font-medium mb-2">{name}</h3>
-      <div className="h-2 bg-secondary/40 rounded-full overflow-hidden flex">
-        {Array.from({ length: 10 }).map((_, i) => (
+      <div className="h-2 bg-secondary/20 rounded-full overflow-hidden flex">
+        {Array.from({ length: segments }).map((_, i) => (
           <div 
             key={i} 
             className={cn(
-              "flex-1 h-full mx-0.5 first:ml-0 last:mr-0 rounded-full border-r border-background/30",
-              i < level / 10 ? "bg-accent" : "bg-transparent"
+              "flex-1 h-full mx-0.5 first:ml-0 last:mr-0 rounded-full transition-all duration-300",
+              isHovered 
+                ? (i < animatedFill ? "bg-accent scale-y-110" : "bg-transparent") 
+                : (i < filledSegments ? "bg-accent" : "bg-transparent"),
+              // Add a border between segments for better visibility
+              "border-r border-background/10"
             )}
+            style={{
+              transitionDelay: isHovered ? `${i * 80}ms` : '0ms'
+            }}
           />
         ))}
       </div>
@@ -102,7 +132,7 @@ const Skills = () => {
                     key={skill.name}
                     name={skill.name}
                     level={skill.level}
-                    index={index + sectionIndex * 100}
+                    index={index + sectionIndex * 10}
                   />
                 ))}
               </div>

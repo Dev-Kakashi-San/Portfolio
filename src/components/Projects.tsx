@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ArrowUpRight, Github, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -17,6 +16,7 @@ interface ProjectProps {
   imageSrc: string;
   reverse?: boolean;
   index: number;
+  bulletPoints?: string[]; // Added bulletPoints prop
 }
 
 const ProjectCard: React.FC<ProjectProps> = ({ 
@@ -26,21 +26,21 @@ const ProjectCard: React.FC<ProjectProps> = ({
   githubLink,
   imageSrc,
   reverse = false,
-  index
+  index,
+  bulletPoints
 }) => {
-  const formatDescription = (desc: string) => {
-    // Only apply bullet points to the first project's description
-    if (title === "Backend Developer — Current Company") {
-      const points = desc.split(/,|\./).filter(point => point.trim().length > 0);
+  const formatDescription = (desc: string, points?: string[]) => {
+    // If bulletPoints are provided, show them instead of the main description
+    if (points && points.length > 0) {
       return (
-        <ul className="list-disc pl-5 space-y-1">
+        <ul className="list-disc pl-5 space-y-1 text-left">
           {points.map((point, idx) => (
             <li key={idx}>{point.trim()}</li>
           ))}
         </ul>
       );
     }
-    return <p className="text-foreground/80">{desc}</p>;
+    return <p className="text-foreground/80 text-left">{desc}</p>;
   };
 
   return (
@@ -81,7 +81,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
           />
           <div className="p-6">
             <h3 className="text-xl font-bold mb-3">{title}</h3>
-            <div className="text-left">{formatDescription(description)}</div>
+            <div className="text-left">{formatDescription(description, bulletPoints)}</div>
           </div>
         </DialogContent>
       </Dialog>
@@ -94,11 +94,11 @@ const ProjectCard: React.FC<ProjectProps> = ({
         <p className="text-accent mb-2 text-sm">Featured Project</p>
         <h3 className="text-xl font-bold mb-3">{title}</h3>
         <div className="glass-card p-4 rounded-xl mb-4 text-left">
-          {formatDescription(description)}
+          {formatDescription(description, bulletPoints)}
         </div>
         <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech) => (
-            <span key={tech} className="text-sm text-foreground/60 bg-accent/10 px-3 py-1 rounded-full transition-all duration-300 hover:bg-accent/30 hover:text-foreground hover:shadow-[0_0_10px_rgba(0,153,175,0.5)]">
+            <span key={tech} className="text-sm text-foreground/60 bg-accent/10 px-3 py-1 rounded-full transition-all duration-300 hover:bg-accent/30 hover:text-foreground hover:shadow-[0_0_10px_rgba(0,153,175,0.5)] tech-badge">
               {tech}
             </span>
           ))}
@@ -122,7 +122,17 @@ const Projects = () => {
   const projects = [
     {
       title: "Backend Developer — Current Company",
-      description: `As a backend developer, I led the development of critical features and system integrations. I built the entire rating & review system, implemented advanced monitoring tools (Grafana, Elastic APM, Metricbeat), and handled third-party automation with Twilio, Zapier, and WABA. I’ve optimized performance for availability and search systems using Elasticsearch, resolved server/Docker-related issues, and built admin panel modules for review analytics. I also integrated OpenAI APIs for dynamic content/image generation and developed real-time systems using WebSockets and cron jobs.`,
+      description: "As a backend developer, I led the development of critical features and system integrations.",
+      bulletPoints: [
+        "Built the entire rating & review system",
+        "Implemented advanced monitoring tools (Grafana, Elastic APM, Metricbeat)",
+        "Handled third-party automation with Twilio, Zapier, and WABA",
+        "Optimized performance for availability and search systems using Elasticsearch",
+        "Resolved server/Docker-related issues",
+        "Built admin panel modules for review analytics",
+        "Integrated OpenAI APIs for dynamic content/image generation",
+        "Developed real-time systems using WebSockets and cron jobs"
+      ],
       technologies: [
         "Node.js", "Express", "MongoDB", "Docker", "Elasticsearch",
         "Grafana", "Elastic APM", "Metricbeat", "Twilio", "Zapier", "WABA",
@@ -158,24 +168,23 @@ const Projects = () => {
       imageSrc: "/public/fulls/03.png"
     },
     {
-  title: "Virtual AI Desktop Assistant (VAIDA)",
-  description:
-    `Built a Python-powered AI assistant capable of voice-based interaction and multitasking.
-    Integrated speech recognition, text-to-speech, and natural language understanding using OpenAI's GPT APIs.
-    Supported voice commands for opening applications, websites, sending emails, and web searching.
-    Implemented features like language translation, creative content generation, and informative Q&A.
-    Used machine learning algorithms for facial recognition of known users.
-    Leveraged modules like pyttsx3, speech_recognition, wikipedia, pywhatkit, os, datetime, and pyautogui.`
-  ,
-  technologies: [
-    "Python", "OpenAI API", "pyttsx3", "speech_recognition", "pyautogui",
-    "pywhatkit", "os", "datetime", "wikipedia", "Machine Learning", "Face Recognition"
-  ],
-  githubLink: "https://github.com/Dev-Tushar-sh/Virtual-AI-Desktop-Assistant",
-  demoLink: "",
-  imageSrc: "/public/fulls/vaida-demo.png"
-}
-
+      title: "Virtual AI Desktop Assistant (VAIDA)",
+      description:
+        "Built a Python-powered AI assistant capable of voice-based interaction and multitasking.",
+      bulletPoints: [
+        "Integrated speech recognition, text-to-speech, and natural language understanding using OpenAI's GPT APIs",
+        "Supported voice commands for opening applications, websites, sending emails, and web searching",
+        "Implemented features like language translation, creative content generation, and informative Q&A",
+        "Used machine learning algorithms for facial recognition of known users",
+        "Leveraged modules like pyttsx3, speech_recognition, wikipedia, pywhatkit, os, datetime, and pyautogui"
+      ],
+      technologies: [
+        "Python", "OpenAI API", "pyttsx3", "speech_recognition", "pyautogui",
+        "pywhatkit", "os", "datetime", "wikipedia", "Machine Learning", "Face Recognition"
+      ],
+      githubLink: "https://github.com/Dev-Tushar-sh/Virtual-AI-Desktop-Assistant",
+      imageSrc: "/public/fulls/vaida-demo.png"
+    }
   ];
 
   return (
@@ -197,6 +206,7 @@ const Projects = () => {
               imageSrc={project.imageSrc}
               reverse={index % 2 !== 0}
               index={index}
+              bulletPoints={project.bulletPoints}
             />
           ))}
         </div>

@@ -19,7 +19,7 @@ const Hero = () => {
       } else {
         clearInterval(typingInterval);
       }
-    }, 50);
+    }, 30); // Faster typing speed
     
     return () => clearInterval(typingInterval);
   }, []);
@@ -29,10 +29,10 @@ const Hero = () => {
       <div className="container mx-auto">
         <div className={`transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <p className="text-accent mb-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>Hi, my name is</p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             Tushar Sharma
           </h1>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground/80 mb-6 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground/80 mb-6 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             I build the logic behind the web<br />
             - APIs, systems, and intelligence.
           </h2>

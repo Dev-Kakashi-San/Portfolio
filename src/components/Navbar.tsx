@@ -21,17 +21,17 @@ const Navbar = () => {
   return (
     <header 
       className={cn(
-        "fixed right-0 top-0 h-full z-50 transition-all duration-300 py-4 px-6",
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6",
         scrolled ? "bg-background/80 backdrop-blur-md shadow-md" : "bg-transparent"
       )}
     >
-      <div className="h-full flex flex-col justify-center items-end">
-        <a href="#home" className="text-xl font-bold text-gradient mb-8">
+      <div className="container mx-auto flex justify-between items-center">
+        <a href="#home" className="text-xl font-bold text-gradient">
           Tushar.dev
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex flex-col items-end space-y-8">
+        <nav className="hidden md:flex space-x-8">
           <a href="#home" className="nav-link">Home</a>
           <a href="#about" className="nav-link">About</a>
           <a href="#skills" className="nav-link">Skills</a>

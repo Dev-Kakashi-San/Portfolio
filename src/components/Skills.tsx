@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 
 interface SkillItemProps {
@@ -15,12 +15,12 @@ const SkillItem: React.FC<SkillItemProps> = ({ name, level, index }) => {
       style={{ animationDelay: `${0.1 * index}s` }}
     >
       <h3 className="font-medium mb-2">{name}</h3>
-      <div className="h-2 bg-secondary rounded-full overflow-hidden flex">
+      <div className="h-2 bg-secondary/40 rounded-full overflow-hidden flex">
         {Array.from({ length: 10 }).map((_, i) => (
           <div 
             key={i} 
             className={cn(
-              "flex-1 h-full mx-px first:ml-0 last:mr-0",
+              "flex-1 h-full mx-0.5 first:ml-0 last:mr-0 rounded-full border-r border-background/30",
               i < level / 10 ? "bg-accent" : "bg-transparent"
             )}
           />

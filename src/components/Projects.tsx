@@ -28,6 +28,21 @@ const ProjectCard: React.FC<ProjectProps> = ({
   reverse = false,
   index
 }) => {
+  const formatDescription = (desc: string) => {
+    // Only apply bullet points to the first project's description
+    if (title === "Backend Developer — Current Company") {
+      const points = desc.split(/,|\./).filter(point => point.trim().length > 0);
+      return (
+        <ul className="list-disc pl-5 space-y-1">
+          {points.map((point, idx) => (
+            <li key={idx}>{point.trim()}</li>
+          ))}
+        </ul>
+      );
+    }
+    return <p className="text-foreground/80">{desc}</p>;
+  };
+
   return (
     <div 
       className={cn(
@@ -66,7 +81,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
           />
           <div className="p-6">
             <h3 className="text-xl font-bold mb-3">{title}</h3>
-            <p className="text-foreground/80 mb-4">{description}</p>
+            <div className="text-left">{formatDescription(description)}</div>
           </div>
         </DialogContent>
       </Dialog>
@@ -74,27 +89,21 @@ const ProjectCard: React.FC<ProjectProps> = ({
       {/* Project Details */}
       <div className={cn(
         "md:col-span-2 z-10",
-        reverse ? "md:col-start-1 md:text-right" : "md:col-start-4"
+        reverse ? "md:col-start-1" : "md:col-start-4"
       )}>
         <p className="text-accent mb-2 text-sm">Featured Project</p>
         <h3 className="text-xl font-bold mb-3">{title}</h3>
-        <div className="glass-card p-4 rounded-xl mb-4">
-          <p className="text-foreground/80">{description}</p>
+        <div className="glass-card p-4 rounded-xl mb-4 text-left">
+          {formatDescription(description)}
         </div>
-        <div className={cn(
-          "flex flex-wrap gap-2 mb-4",
-          reverse ? "md:justify-end" : "md:justify-start"
-        )}>
+        <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech) => (
-            <span key={tech} className="text-sm text-foreground/60 bg-accent/10 px-3 py-1 rounded-full">
+            <span key={tech} className="text-sm text-foreground/60 bg-accent/10 px-3 py-1 rounded-full transition-all duration-300 hover:bg-accent/30 hover:text-foreground hover:shadow-[0_0_10px_rgba(0,153,175,0.5)]">
               {tech}
             </span>
           ))}
         </div>
-        <div className={cn(
-          "flex gap-4",
-          reverse ? "md:justify-end" : "md:justify-start"
-        )}>
+        <div className="flex gap-4">
           <a 
             href={githubLink} 
             target="_blank" 

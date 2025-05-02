@@ -5,9 +5,23 @@ import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
-
+  const [typedText, setTypedText] = useState("");
+  const fullText = "I'm a backend developer who builds scalable systems and thrives on solving complex problems with code.";
+  
   useEffect(() => {
     setIsVisible(true);
+    
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setTypedText(fullText.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 50);
+    
+    return () => clearInterval(typingInterval);
   }, []);
 
   return (
@@ -22,9 +36,10 @@ const Hero = () => {
             I build the logic behind the web<br />
             - APIs, systems, and intelligence.
           </h2>
-          <div className="typing-container animate-typing max-w-2xl mb-8 animate-fade-in" style={{ animationDelay: '0.9s' }}>
+          <div className="mb-8 animate-fade-in" style={{ animationDelay: '0.9s' }}>
             <p className="text-foreground/70 text-lg">
-            I'm a backend developer who builds scalable systems and thrives on solving complex problems with code.
+              {typedText}
+              <span className="animate-pulse">|</span>
             </p>
           </div>
           <div className="flex gap-4 mb-12 animate-fade-in" style={{ animationDelay: '1s' }}>

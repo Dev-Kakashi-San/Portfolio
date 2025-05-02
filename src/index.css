@@ -1,10 +1,11 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 220 10% 15%;
+    --background: 220 13% 15%;
     --foreground: 0 0% 98%;
     --card: 220 10% 20%;
     --card-foreground: 0 0% 98%;
@@ -16,13 +17,13 @@
     --secondary-foreground: 0 0% 98%;
     --muted: 220 10% 30%;
     --muted-foreground: 220 5% 70%;
-    --accent: 180 100% 30%;
+    --accent: 180 100% 35%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 220 10% 25%;
     --input: 220 10% 25%;
-    --ring: 180 100% 30%;
+    --ring: 180 100% 35%;
     --radius: 0.5rem;
   }
 
@@ -63,10 +64,6 @@
   }
 
   .nav-link {
-    @apply relative text-foreground/80 hover:text-foreground transition-colors duration-200 before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5 before:bg-accent before:transition-all before:duration-300 hover:before:w-full;
-  }
-
-  .typing-container {
-    @apply overflow-hidden whitespace-nowrap border-r-2 border-accent inline-block;
+    @apply relative text-foreground/80 hover:text-foreground transition-colors duration-200 before:content-[''] before:absolute before:bottom-0 before:right-0 before:w-0 before:h-0.5 before:bg-accent before:transition-all before:duration-300 hover:before:w-full;
   }
 }

@@ -1,11 +1,75 @@
+
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
+import { 
+  Code, Database, Server, Git, FileJson, Braces, Cpu, 
+  Terminal, MessageSquare, Laptop, Workflow, Bookmark 
+} from "lucide-react";
 
 interface SkillItemProps {
   name: string;
   level: number;
   index: number;
+  icon?: React.ReactNode;
 }
+
+const getIconForSkill = (skillName: string) => {
+  const iconProps = { size: 20, className: "text-accent" };
+  
+  // Map skill names to their corresponding icons
+  switch (skillName.toLowerCase()) {
+    case "c++": 
+      return <Code {...iconProps} />;
+    case "python": 
+      return <Terminal {...iconProps} />;
+    case "javascript": 
+      return <Braces {...iconProps} />;
+    case "golang": 
+      return <FileJson {...iconProps} />;
+    case "data structures & algorithms": 
+      return <Workflow {...iconProps} />;
+    case "oops": 
+      return <Bookmark {...iconProps} />;
+    case "dbms": 
+      return <Database {...iconProps} />;
+    case "operating systems": 
+      return <Laptop {...iconProps} />;
+    case "node.js": 
+      return <Server {...iconProps} />;
+    case "django": 
+      return <Code {...iconProps} />;
+    case "flask": 
+      return <Code {...iconProps} />;
+    case "mongodb": 
+      return <Database {...iconProps} />;
+    case "mysql": 
+      return <Database {...iconProps} />;
+    case "postgressql": 
+      return <Database {...iconProps} />;
+    case "mysqlite": 
+      return <Database {...iconProps} />;
+    case "elasticsearch": 
+      return <Database {...iconProps} />;
+    case "git & github": 
+      return <Git {...iconProps} />;
+    case "postman": 
+      return <MessageSquare {...iconProps} />;
+    case "mongodb atlas": 
+      return <Database {...iconProps} />;
+    case "termius": 
+      return <Terminal {...iconProps} />;
+    case "twilio": 
+      return <MessageSquare {...iconProps} />;
+    case "zapier": 
+      return <Workflow {...iconProps} />;
+    case "generative ai (openai apis)": 
+      return <Cpu {...iconProps} />;
+    case "machine learning": 
+      return <Cpu {...iconProps} />;
+    default:
+      return <Code {...iconProps} />;
+  }
+};
 
 const SkillItem: React.FC<SkillItemProps> = ({ name, level, index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -37,7 +101,10 @@ const SkillItem: React.FC<SkillItemProps> = ({ name, level, index }) => {
         setAnimatedFill(0);
       }}
     >
-      <h3 className="font-medium mb-2">{name}</h3>
+      <div className="flex items-center gap-2 mb-2">
+        {getIconForSkill(name)}
+        <h3 className="font-medium">{name}</h3>
+      </div>
       <div className="h-2 bg-secondary/20 rounded-full overflow-hidden flex">
         {Array.from({ length: segments }).map((_, i) => (
           <div
@@ -51,7 +118,7 @@ const SkillItem: React.FC<SkillItemProps> = ({ name, level, index }) => {
                 : i < filledSegments
                 ? "bg-accent"
                 : "bg-[#1c6666]",
-              "border-r border-background/10"
+              "border-r border-background/30" // Lighter border for better visibility
             )}
             style={{
               transitionDelay: isHovered ? `${i * 80}ms` : "0ms",

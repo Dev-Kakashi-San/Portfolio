@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
-import { ArrowUpRight, Github, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { 
-  Dialog, 
-  DialogContent,
-  DialogTrigger
-} from '@/components/ui/dialog';
+import React, { useState } from "react";
+import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 interface ProjectProps {
   title: string;
@@ -19,32 +15,33 @@ interface ProjectProps {
   bulletPoints?: string[]; // Added bulletPoints prop
 }
 
-const ProjectCard: React.FC<ProjectProps> = ({ 
-  title, 
-  description, 
-  technologies, 
+const ProjectCard: React.FC<ProjectProps> = ({
+  title,
+  description,
+  technologies,
   githubLink,
   imageSrc,
   reverse = false,
   index,
-  bulletPoints
+  bulletPoints,
 }) => {
   const formatDescription = (desc: string, points?: string[]) => {
     // If bulletPoints are provided, show them instead of the main description
-    if (points && points.length > 0) {
-      return (
+    console.log(points);
+    return (
+      <>
+        <p className="text-left mb-5">{desc}</p>
         <ul className="list-disc pl-5 space-y-1 text-left">
-          {points.map((point, idx) => (
+          {points?.map((point, idx) => (
             <li key={idx}>{point.trim()}</li>
           ))}
         </ul>
-      );
-    }
-    return <p className="text-foreground/80 text-left">{desc}</p>;
+      </>
+    );
   };
 
   return (
-    <div 
+    <div
       className={cn(
         "grid md:grid-cols-5 gap-6 items-center animate-fade-in",
         reverse ? "md:grid-flow-dense" : ""
@@ -54,14 +51,16 @@ const ProjectCard: React.FC<ProjectProps> = ({
       {/* Project Image/Preview */}
       <Dialog>
         <DialogTrigger asChild>
-          <div className={cn(
-            "md:col-span-3 relative group overflow-hidden rounded-2xl border border-white/20 shadow-lg cursor-pointer",
-            reverse ? "md:col-start-3" : "md:col-start-1"
-          )}>
+          <div
+            className={cn(
+              "md:col-span-3 relative group overflow-hidden rounded-2xl border border-white/20 shadow-lg cursor-pointer",
+              reverse ? "md:col-start-3" : "md:col-start-1"
+            )}
+          >
             <div className="aspect-video bg-gradient-to-tr from-accent/30 to-secondary/40 relative overflow-hidden rounded-2xl">
-              <img 
-                src={imageSrc} 
-                alt={title} 
+              <img
+                src={imageSrc}
+                alt={title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-background/10 group-hover:bg-transparent transition-colors duration-300 flex items-center justify-center">
@@ -74,23 +73,23 @@ const ProjectCard: React.FC<ProjectProps> = ({
           </div>
         </DialogTrigger>
         <DialogContent className="w-full max-w-4xl p-0 overflow-hidden bg-card">
-          <img 
-            src={imageSrc} 
-            alt={title} 
-            className="w-full h-auto" 
-          />
+          <img src={imageSrc} alt={title} className="w-full h-auto" />
           <div className="p-6">
             <h3 className="text-xl font-bold mb-3">{title}</h3>
-            <div className="text-left">{formatDescription(description, bulletPoints)}</div>
+            <div className="text-left">
+              {formatDescription(description, bulletPoints)}
+            </div>
           </div>
         </DialogContent>
       </Dialog>
-      
+
       {/* Project Details */}
-      <div className={cn(
-        "md:col-span-2 z-10",
-        reverse ? "md:col-start-1" : "md:col-start-4"
-      )}>
+      <div
+        className={cn(
+          "md:col-span-2 z-10",
+          reverse ? "md:col-start-1" : "md:col-start-4"
+        )}
+      >
         <p className="text-accent mb-2 text-sm">Featured Project</p>
         <h3 className="text-xl font-bold mb-3">{title}</h3>
         <div className="glass-card p-4 rounded-xl mb-4 text-left">
@@ -98,15 +97,18 @@ const ProjectCard: React.FC<ProjectProps> = ({
         </div>
         <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech) => (
-            <span key={tech} className="text-sm text-foreground/60 bg-accent/10 px-3 py-1 rounded-full transition-all duration-300 hover:bg-accent/30 hover:text-foreground hover:shadow-[0_0_10px_rgba(0,153,175,0.5)] tech-badge">
+            <span
+              key={tech}
+              className="text-sm text-foreground/60 bg-accent/10 px-3 py-1 rounded-full transition-all duration-300 hover:bg-accent/30 hover:text-foreground hover:shadow-[0_0_10px_rgba(0,153,175,0.5)] tech-badge"
+            >
               {tech}
             </span>
           ))}
         </div>
         <div className="flex gap-4">
-          <a 
-            href={githubLink} 
-            target="_blank" 
+          <a
+            href={githubLink}
+            target="_blank"
             rel="noopener noreferrer"
             className="text-foreground/70 hover:text-accent transition-colors"
           >
@@ -122,7 +124,8 @@ const Projects = () => {
   const projects = [
     {
       title: "Backend Developer — Current Company",
-      description: "As a backend developer, I led the development of critical features and system integrations.",
+      description:
+        "As a backend developer, I led the development of critical features and system integrations.",
       bulletPoints: [
         "Built the entire rating & review system",
         "Implemented advanced monitoring tools (Grafana, Elastic APM, Metricbeat)",
@@ -131,33 +134,64 @@ const Projects = () => {
         "Resolved server/Docker-related issues",
         "Built admin panel modules for review analytics",
         "Integrated OpenAI APIs for dynamic content/image generation",
-        "Developed real-time systems using WebSockets and cron jobs"
+        "Developed real-time systems using WebSockets and cron jobs",
       ],
       technologies: [
-        "Node.js", "Express", "MongoDB", "Docker", "Elasticsearch",
-        "Grafana", "Elastic APM", "Metricbeat", "Twilio", "Zapier", "WABA",
-        "Google Analytics", "OpenAI API", "AWS", "JavaScript", "Socket.IO",
-        "Cron Jobs", "Admin Panels", "Backend Architecture"
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Docker",
+        "Elasticsearch",
+        "Grafana",
+        "Elastic APM",
+        "Metricbeat",
+        "Twilio",
+        "Zapier",
+        "WABA",
+        "Google Analytics",
+        "OpenAI API",
+        "AWS",
+        "JavaScript",
+        "Socket.IO",
+        "Cron Jobs",
+        "Admin Panels",
+        "Backend Architecture",
       ],
       githubLink: "",
       demoLink: "",
-      imageSrc: "/public/fulls/company-logo.png"
-    },       
+      imageSrc: "/public/fulls/company-logo.png",
+    },
     {
       title: "E-Commerce Website",
       description:
         "Developed a fully functional e-commerce platform using Django and Python. This project includes essential features like user authentication, shopping cart, and order tracking. It also integrates secure session management and provides a simple, responsive UI built with Bootstrap. The backend is powered by MySQLite, ensuring lightweight yet effective database operations ideal for small-scale deployments.",
-      technologies: ["Django", "Python", "MySQLite", "Bootstrap", "JavaScript", "HTML", "CSS"],
+      technologies: [
+        "Django",
+        "Python",
+        "MySQLite",
+        "Bootstrap",
+        "JavaScript",
+        "HTML",
+        "CSS",
+      ],
       githubLink: "https://github.com/Dev-Tushar-sh/TKart-Ecommerce-Website",
-      imageSrc: "/public/fulls/01.png"
+      imageSrc: "/public/fulls/01.png",
     },
     {
       title: "Social Media Platform",
       description:
         "Built a mini social media web app that supports features like user registration, following other users, posting content, liking posts, and maintaining a personalized feed. This project was developed using Django and Python with PostgreSQL as the backend. It focuses on implementing relational database concepts and efficient data handling while maintaining user experience with proper session and state management.",
-      technologies: ["Django", "Python", "PostgreSQL", "HTML", "CSS", "JavaScript"],
-      githubLink: "https://github.com/Dev-Tushar-sh/CosmoLinks-Social-Media-Website",
-      imageSrc: "/public/fulls/02.png"
+      technologies: [
+        "Django",
+        "Python",
+        "PostgreSQL",
+        "HTML",
+        "CSS",
+        "JavaScript",
+      ],
+      githubLink:
+        "https://github.com/Dev-Tushar-sh/CosmoLinks-Social-Media-Website",
+      imageSrc: "/public/fulls/02.png",
     },
     {
       title: "Movie Recommender System",
@@ -165,7 +199,7 @@ const Projects = () => {
         "A content-based recommendation system that suggests movies based on the description and genres of previously liked films. Implemented using machine learning techniques and libraries like Scikit-learn and Pandas. The user interface is built with Streamlit, making it fast to prototype and demo the ML pipeline. This project demonstrates my ability to work with ML models and deploy them via a lightweight web app.",
       technologies: ["Python", "Pandas", "Scikit-learn", "Streamlit", "NLP"],
       githubLink: "https://github.com/Dev-Tushar-sh/Movies-Recommender-System",
-      imageSrc: "/public/fulls/03.png"
+      imageSrc: "/public/fulls/03.png",
     },
     {
       title: "Virtual AI Desktop Assistant (VAIDA)",
@@ -176,15 +210,25 @@ const Projects = () => {
         "Supported voice commands for opening applications, websites, sending emails, and web searching",
         "Implemented features like language translation, creative content generation, and informative Q&A",
         "Used machine learning algorithms for facial recognition of known users",
-        "Leveraged modules like pyttsx3, speech_recognition, wikipedia, pywhatkit, os, datetime, and pyautogui"
+        "Leveraged modules like pyttsx3, speech_recognition, wikipedia, pywhatkit, os, datetime, and pyautogui",
       ],
       technologies: [
-        "Python", "OpenAI API", "pyttsx3", "speech_recognition", "pyautogui",
-        "pywhatkit", "os", "datetime", "wikipedia", "Machine Learning", "Face Recognition"
+        "Python",
+        "OpenAI API",
+        "pyttsx3",
+        "speech_recognition",
+        "pyautogui",
+        "pywhatkit",
+        "os",
+        "datetime",
+        "wikipedia",
+        "Machine Learning",
+        "Face Recognition",
       ],
-      githubLink: "https://github.com/Dev-Tushar-sh/Virtual-AI-Desktop-Assistant",
-      imageSrc: "/public/fulls/vaida-demo.png"
-    }
+      githubLink:
+        "https://github.com/Dev-Tushar-sh/Virtual-AI-Desktop-Assistant",
+      imageSrc: "/public/fulls/vaida-demo.png",
+    },
   ];
 
   return (
@@ -194,10 +238,10 @@ const Projects = () => {
           <span className="text-accent">03.</span> Work & Projects
           <div className="h-px bg-foreground/20 flex-grow ml-4"></div>
         </h2>
-        
+
         <div className="space-y-20">
           {projects.map((project, index) => (
-            <ProjectCard 
+            <ProjectCard
               key={project.title}
               title={project.title}
               description={project.description}
@@ -210,15 +254,19 @@ const Projects = () => {
             />
           ))}
         </div>
-        
+
         <div className="text-center mt-16">
           <p className="text-foreground/70 mb-6">
             Interested in seeing more of my work?
           </p>
-          <Button asChild variant="outline" className="rounded-full hover:bg-accent/20 hover:text-accent">
-            <a 
-              href="https://github.com/dev-tushar-sh" 
-              target="_blank" 
+          <Button
+            asChild
+            variant="outline"
+            className="rounded-full hover:bg-accent/20 hover:text-accent"
+          >
+            <a
+              href="https://github.com/dev-tushar-sh"
+              target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2"
             >

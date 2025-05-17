@@ -1,12 +1,11 @@
-
-import React, { useEffect } from 'react';
-import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Skills from '@/components/Skills';
-import Projects from '@/components/Projects';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import React, { useEffect } from "react";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Skills from "@/components/Skills";
+import Projects from "@/components/Projects";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   // Add scroll animation observer
@@ -15,7 +14,7 @@ const Index = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
+            entry.target.classList.add("animate-fade-in");
           }
         });
       },
@@ -23,12 +22,12 @@ const Index = () => {
     );
 
     // Target elements with the data-animate attribute
-    document.querySelectorAll('[data-animate]').forEach((el) => {
+    document.querySelectorAll("[data-animate]").forEach((el) => {
       observer.observe(el);
     });
 
     return () => {
-      document.querySelectorAll('[data-animate]').forEach((el) => {
+      document.querySelectorAll("[data-animate]").forEach((el) => {
         observer.unobserve(el);
       });
     };

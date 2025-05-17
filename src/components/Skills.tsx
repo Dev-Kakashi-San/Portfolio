@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { 
-  Code, Database, Server, Git, FileJson, Braces, Cpu, 
+  Code, Database, Server, GitBranch, FileJson, Braces, Cpu, 
   Terminal, MessageSquare, Laptop, Workflow, Bookmark 
 } from "lucide-react";
 
@@ -51,7 +51,7 @@ const getIconForSkill = (skillName: string) => {
     case "elasticsearch": 
       return <Database {...iconProps} />;
     case "git & github": 
-      return <Git {...iconProps} />;
+      return <GitBranch {...iconProps} />;
     case "postman": 
       return <MessageSquare {...iconProps} />;
     case "mongodb atlas": 

@@ -159,7 +159,7 @@ const Projects = () => {
       ],
       githubLink: "",
       demoLink: "",
-      imageSrc: "/public/fulls/company-logo.png",
+      imageSrc: "/public/fulls/Backend.png",
     },
     {
       title: "E-Commerce Website",
@@ -227,7 +227,7 @@ const Projects = () => {
       ],
       githubLink:
         "https://github.com/Dev-Tushar-sh/Virtual-AI-Desktop-Assistant",
-      imageSrc: "/public/fulls/vaida-demo.png",
+      imageSrc: "/public/fulls/vaida.png",
     },
   ];
 

@@ -133,15 +133,15 @@ const SkillItem: React.FC<SkillItemProps> = ({ name, level, index }) => {
 const Skills = () => {
   const programmingLanguages = [
     { name: "C++", level: 85 },
-    { name: "Python", level: 85 },
     { name: "JavaScript", level: 80 },
-    { name: "Golang", level: 70 },
+    { name: "Python", level: 70 },
+    { name: "Golang", level: 60 },
   ];
 
   const csFundamentals = [
     { name: "Data Structures & Algorithms", level: 90 },
     { name: "OOPs", level: 80 },
-    { name: "DBMS", level: 75 },
+    { name: "DBMS", level: 80 },
     { name: "Operating Systems", level: 80 },
   ];
 
@@ -152,7 +152,7 @@ const Skills = () => {
   ];
 
   const databases = [
-    { name: "MongoDB", level: 75 },
+    { name: "MongoDB", level: 90 },
     { name: "MySQL", level: 80 },
     { name: "PostgresSQL", level: 80 },
     { name: "MySQlite", level: 80 },
@@ -168,12 +168,12 @@ const Skills = () => {
 
   const integrations = [
     { name: "Twilio", level: 80 },
-    { name: "Zapier", level: 70 },
+    { name: "Zapier", level: 80 },
   ];
 
   const ml = [
     { name: "Generative AI (OpenAI APIs)", level: 85 },
-    { name: "Machine Learning", level: 80 },
+    { name: "Machine Learning", level: 60 },
   ];
 
   return (

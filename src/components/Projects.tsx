@@ -3,6 +3,7 @@ import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface ProjectProps {
   title: string;
@@ -72,14 +73,16 @@ const ProjectCard: React.FC<ProjectProps> = ({
             </div>
           </div>
         </DialogTrigger>
-        <DialogContent className="w-full max-w-4xl p-0 overflow-hidden bg-card">
-          <img src={imageSrc} alt={title} className="w-full h-auto" />
-          <div className="p-6">
+        <DialogContent className="w-full max-w-4xl h-[80vh] p-0 overflow-hidden bg-card flex flex-col">
+          <div className="flex-shrink-0">
+            <img src={imageSrc} alt={title} className="w-full h-auto max-h-[50vh] object-cover" />
+          </div>
+          <ScrollArea className="flex-1 p-6">
             <h3 className="text-xl font-bold mb-3">{title}</h3>
             <div className="text-left">
               {formatDescription(description, bulletPoints)}
             </div>
-          </div>
+          </ScrollArea>
         </DialogContent>
       </Dialog>
 

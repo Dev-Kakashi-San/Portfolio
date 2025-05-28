@@ -7,7 +7,7 @@ const Footer = () => {
   
   useEffect(() => {
     // Fetch and increment visitor count using CountAPI
-    fetch('https://api.countapi.xyz/hit/tushar-portfolio/visits')
+    fetch('https://api.countapi.xyz/hit/tushar-sharma-portfolio/global-visits')
       .then(response => response.json())
       .then(data => {
         if (data && data.value) {

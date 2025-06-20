@@ -30,117 +30,117 @@ const Skills = () => {
   const programmingLanguages = [
     { 
       name: "C++", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+      logoUrl: "/logos/cpp.svg"
     },
     { 
       name: "JavaScript", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+      logoUrl: "/logos/javascript.svg"
     },
     { 
       name: "Python", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+      logoUrl: "/logos/python.svg"
     },
     { 
       name: "Go", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg"
+      logoUrl: "/logos/go.svg"
     },
   ];
 
   const csFundamentals = [
     { 
       name: "Data Structures", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/algorithm/algorithm-original.svg"
+      logoUrl: "/logos/data-structures.svg"
     },
     { 
       name: "OOP", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/objectivec/objectivec-plain.svg"
+      logoUrl: "/logos/oop.svg"
     },
     { 
       name: "Database", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/database/database-original.svg"
+      logoUrl: "/logos/database.svg"
     },
     { 
       name: "Operating System", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+      logoUrl: "/logos/linux.svg"
     },
   ];
 
   const backendSkills = [
     { 
       name: "Node.js", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+      logoUrl: "/logos/nodejs.svg"
     },
     { 
       name: "Django", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+      logoUrl: "/logos/django.svg"
     },
     { 
       name: "Flask", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"
+      logoUrl: "/logos/flask.svg"
     },
   ];
 
   const databases = [
     { 
       name: "MongoDB", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+      logoUrl: "/logos/mongodb.svg"
     },
     { 
       name: "MySQL", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+      logoUrl: "/logos/mysql.svg"
     },
     { 
       name: "PostgreSQL", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+      logoUrl: "/logos/postgresql.svg"
     },
     { 
       name: "SQLite", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"
+      logoUrl: "/logos/sqlite.svg"
     },
     { 
       name: "Elasticsearch", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg"
+      logoUrl: "/logos/elasticsearch.svg"
     },
   ];
 
   const tools = [
     { 
       name: "Git", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+      logoUrl: "/logos/git.svg"
     },
     { 
       name: "GitHub", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+      logoUrl: "/logos/github.svg"
     },
     { 
       name: "Postman", 
-      logoUrl: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg"
+      logoUrl: "/logos/postman.svg"
     },
     { 
       name: "VS Code", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+      logoUrl: "/logos/vscode.svg"
     },
   ];
 
   const integrations = [
     { 
       name: "Twilio", 
-      logoUrl: "https://www.vectorlogo.zone/logos/twilio/twilio-icon.svg"
+      logoUrl: "/logos/twilio.svg"
     },
     { 
       name: "Zapier", 
-      logoUrl: "https://www.vectorlogo.zone/logos/zapier/zapier-icon.svg"
+      logoUrl: "/logos/zapier.svg"
     },
   ];
 
   const ml = [
     { 
       name: "OpenAI", 
-      logoUrl: "https://www.vectorlogo.zone/logos/openai/openai-icon.svg"
+      logoUrl: "/logos/openai.svg"
     },
     { 
       name: "Machine Learning", 
-      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+      logoUrl: "/logos/machine-learning.svg"
     },
   ];
 

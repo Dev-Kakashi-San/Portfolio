@@ -1,0 +1,7 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+<path fill="#003B57" d="M64 8C100.451 8 120 27.549 120 64s-19.549 56-56 56S8 100.451 8 64 27.549 8 64 8z"/>
+<path fill="white" d="M64 20c-24.3 0-44 19.7-44 44s19.7 44 44 44 44-19.7 44-44-19.7-44-44-44zm0 72c-15.464 0-28-12.536-28-28s12.536-28 28-28 28 12.536 28 28-12.536 28-28 28z"/>
+<circle cx="64" cy="64" r="12" fill="#003B57"/>
+<text x="64" y="116" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">SQLite</text>
+</svg>

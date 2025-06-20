@@ -1,0 +1,7 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+<rect width="128" height="128" fill="#FF4A00"/>
+<path fill="white" d="M20 20h88v16H20zm0 24h88v16H20zm0 24h88v16H20zm0 24h88v16H20z"/>
+<polygon fill="white" points="64,36 84,56 64,76 44,56"/>
+<text x="64" y="115" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">Zapier</text>
+</svg>

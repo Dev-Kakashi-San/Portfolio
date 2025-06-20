@@ -1,0 +1,11 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+<circle cx="64" cy="64" r="60" fill="#412991"/>
+<path fill="white" d="M64 20c-5.5 0-10 4.5-10 10v8c-8.8 0-16 7.2-16 16s7.2 16 16 16h8c0 5.5 4.5 10 10 10s10-4.5 10-10v-8c8.8 0 16-7.2 16-16s-7.2-16-16-16h-8c0-5.5-4.5-10-10-10z"/>
+<circle cx="64" cy="64" r="8" fill="#412991"/>
+<path fill="#00D4FF" d="M64 48c-4.4 0-8 3.6-8 8h16c0-4.4-3.6-8-8-8z"/>
+<path fill="#10A37F" d="M80 64c0-4.4-3.6-8-8-8v16c4.4 0 8-3.6 8-8z"/>
+<path fill="#FF6B35" d="M64 80c4.4 0 8-3.6 8-8H56c0 4.4 3.6 8 8 8z"/>
+<path fill="#B83DBA" d="M48 64c0 4.4 3.6 8 8 8V56c-4.4 0-8 3.6-8 8z"/>
+<text x="64" y="115" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">OpenAI</text>
+</svg>

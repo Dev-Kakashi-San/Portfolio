@@ -18,7 +18,7 @@ const SkillLogo: React.FC<SkillLogoProps> = ({ name, logoUrl, index }) => {
         alt={`${name} logo`}
         className="w-24 h-24 object-contain mb-2"
         onError={(e) => {
-          e.currentTarget.src = `https://via.placeholder.com/96/0ea5e9/ffffff?text=${name.charAt(0)}`;
+          e.currentTarget.src = `https://ui-avatars.com/api/?name=${name.charAt(0)}&background=0ea5e9&color=ffffff&size=96`;
         }}
       />
       <span className="text-sm text-center font-medium text-foreground/80">{name}</span>
@@ -49,19 +49,19 @@ const Skills = () => {
   const csFundamentals = [
     { 
       name: "Data Structures", 
-      logoUrl: "https://img.icons8.com/color/96/data-structure.png"
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/algorithm/algorithm-original.svg"
     },
     { 
       name: "OOP", 
-      logoUrl: "https://img.icons8.com/color/96/object.png"
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/objectivec/objectivec-plain.svg"
     },
     { 
       name: "Database", 
-      logoUrl: "https://img.icons8.com/color/96/database.png"
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/database/database-original.svg"
     },
     { 
       name: "Operating System", 
-      logoUrl: "https://img.icons8.com/color/96/linux.png"
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
     },
   ];
 
@@ -99,7 +99,7 @@ const Skills = () => {
     },
     { 
       name: "Elasticsearch", 
-      logoUrl: "https://img.icons8.com/color/96/elasticsearch.png"
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg"
     },
   ];
 
@@ -114,7 +114,7 @@ const Skills = () => {
     },
     { 
       name: "Postman", 
-      logoUrl: "https://img.icons8.com/dusk/96/postman-api.png"
+      logoUrl: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg"
     },
     { 
       name: "VS Code", 
@@ -125,22 +125,22 @@ const Skills = () => {
   const integrations = [
     { 
       name: "Twilio", 
-      logoUrl: "https://img.icons8.com/color/96/twilio.png"
+      logoUrl: "https://www.vectorlogo.zone/logos/twilio/twilio-icon.svg"
     },
     { 
       name: "Zapier", 
-      logoUrl: "https://img.icons8.com/color/96/zapier.png"
+      logoUrl: "https://www.vectorlogo.zone/logos/zapier/zapier-icon.svg"
     },
   ];
 
   const ml = [
     { 
       name: "OpenAI", 
-      logoUrl: "https://img.icons8.com/color/96/chatgpt.png"
+      logoUrl: "https://www.vectorlogo.zone/logos/openai/openai-icon.svg"
     },
     { 
       name: "Machine Learning", 
-      logoUrl: "https://img.icons8.com/color/96/artificial-intelligence.png"
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
     },
   ];
 

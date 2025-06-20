@@ -1,4 +1,3 @@
-
 import React from "react";
 
 interface SkillLogoProps {
@@ -10,18 +9,17 @@ interface SkillLogoProps {
 const SkillLogo: React.FC<SkillLogoProps> = ({ name, logoUrl, index }) => {
   return (
     <div
-      className="glass-card p-6 rounded-lg animate-fade-in hover:scale-105 transition-transform duration-300 flex flex-col items-center justify-center min-h-[120px]"
+      className="animate-fade-in hover:scale-110 transition-transform duration-300 flex flex-col items-center justify-center"
       style={{ animationDelay: `${0.1 * index}s` }}
     >
       <img
         src={logoUrl}
         alt={`${name} logo`}
-        className="w-16 h-16 object-contain mb-2"
+        className="w-20 h-20 object-contain"
         onError={(e) => {
-          e.currentTarget.src = `https://via.placeholder.com/64/0ea5e9/ffffff?text=${name.charAt(0)}`;
+          e.currentTarget.src = `https://via.placeholder.com/80/0ea5e9/ffffff?text=${name.charAt(0)}`;
         }}
       />
-      <span className="text-sm text-center font-medium text-foreground/80">{name}</span>
     </div>
   );
 };
@@ -166,7 +164,7 @@ const Skills = () => {
               <h3 className="text-xl font-semibold mb-6 text-accent">
                 {section.title}
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
                 {section.data.map((skill, index) => (
                   <SkillLogo
                     key={skill.name}

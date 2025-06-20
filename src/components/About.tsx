@@ -35,7 +35,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="w-full md:w-2/5 lg:w-1/2 relative group flex justify-center xl:items-center">
+          {/* <div className="w-full md:w-2/5 lg:w-1/2 relative group flex justify-center xl:items-center">
             <div className="relative z-10 overflow-hidden rounded-md w-3/4 md:w-full lg:w-3/4">
               <div className="flex justify-center overflow-hidden rounded-md">
                 <img
@@ -45,7 +45,20 @@ const About = () => {
                 />
               </div>
             </div>
+          </div>  */}
+          <div className="w-full md:w-2/5 lg:w-1/2 relative group flex justify-center xl:items-center">
+            {/* <div className="flex justify-center overflow-hidden rounded-md [filter:drop-shadow(8px_8px_12px_hsl(180_100%_35%))]"> */}
+            <div className="relative z-10 overflow-hidden rounded-md w-3/4 md:w-full lg:w-3/4">
+              <div className="flex justify-center overflow-hidden rounded-md [filter:drop-shadow(8px_8px_12px_#66d1d1)]">
+                <img
+                  src="/Chibi Tushar.png"
+                  alt="Tushar Sharma"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </section>

@@ -32,7 +32,7 @@ const Hero = () => {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             Tushar Sharma
           </h1>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground/80 mb-6 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <h2 className="text-xl md:text-2xl lg:text-4xl font-bold text-foreground/80 mb-6 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             I build the logic behind the web<br />
             - APIs, systems, and intelligence.
           </h2>

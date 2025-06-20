@@ -1,3 +1,4 @@
+
 import React from "react";
 
 interface SkillLogoProps {
@@ -15,11 +16,12 @@ const SkillLogo: React.FC<SkillLogoProps> = ({ name, logoUrl, index }) => {
       <img
         src={logoUrl}
         alt={`${name} logo`}
-        className="w-20 h-20 object-contain"
+        className="w-24 h-24 object-contain mb-2"
         onError={(e) => {
-          e.currentTarget.src = `https://via.placeholder.com/80/0ea5e9/ffffff?text=${name.charAt(0)}`;
+          e.currentTarget.src = `https://via.placeholder.com/96/0ea5e9/ffffff?text=${name.charAt(0)}`;
         }}
       />
+      <span className="text-sm text-center font-medium text-foreground/80">{name}</span>
     </div>
   );
 };

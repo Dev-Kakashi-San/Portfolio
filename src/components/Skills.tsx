@@ -52,11 +52,11 @@ const Skills = () => {
       logoUrl: "/logos/data-structures.svg"
     },
     { 
-      name: "OOP", 
+      name: "Object Oriented Programming", 
       logoUrl: "/logos/oop.svg"
     },
     { 
-      name: "Database", 
+      name: "Database Management", 
       logoUrl: "/logos/database.svg"
     },
     { 

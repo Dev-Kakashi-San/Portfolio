@@ -1,179 +1,147 @@
 
-import React, { useState } from "react";
-import { cn } from "@/lib/utils";
-import { 
-  Code, Database, Server, GitBranch, FileJson, Braces, Cpu, 
-  Terminal, MessageSquare, Laptop, Workflow, Bookmark 
-} from "lucide-react";
+import React from "react";
 
-interface SkillItemProps {
+interface SkillLogoProps {
   name: string;
-  level: number;
+  logoUrl: string;
   index: number;
-  icon?: React.ReactNode;
 }
 
-const getIconForSkill = (skillName: string) => {
-  const iconProps = { size: 20, className: "text-accent" };
-  
-  // Map skill names to their corresponding icons
-  switch (skillName.toLowerCase()) {
-    case "c++": 
-      return <Code {...iconProps} />;
-    case "python": 
-      return <Terminal {...iconProps} />;
-    case "javascript": 
-      return <Braces {...iconProps} />;
-    case "golang": 
-      return <FileJson {...iconProps} />;
-    case "data structures & algorithms": 
-      return <Workflow {...iconProps} />;
-    case "oops": 
-      return <Bookmark {...iconProps} />;
-    case "dbms": 
-      return <Database {...iconProps} />;
-    case "operating systems": 
-      return <Laptop {...iconProps} />;
-    case "node.js": 
-      return <Server {...iconProps} />;
-    case "django": 
-      return <Code {...iconProps} />;
-    case "flask": 
-      return <Code {...iconProps} />;
-    case "mongodb": 
-      return <Database {...iconProps} />;
-    case "mysql": 
-      return <Database {...iconProps} />;
-    case "postgressql": 
-      return <Database {...iconProps} />;
-    case "mysqlite": 
-      return <Database {...iconProps} />;
-    case "elasticsearch": 
-      return <Database {...iconProps} />;
-    case "git & github": 
-      return <GitBranch {...iconProps} />;
-    case "postman": 
-      return <MessageSquare {...iconProps} />;
-    case "mongodb atlas": 
-      return <Database {...iconProps} />;
-    case "termius": 
-      return <Terminal {...iconProps} />;
-    case "twilio": 
-      return <MessageSquare {...iconProps} />;
-    case "zapier": 
-      return <Workflow {...iconProps} />;
-    case "generative ai (openai apis)": 
-      return <Cpu {...iconProps} />;
-    case "machine learning": 
-      return <Cpu {...iconProps} />;
-    default:
-      return <Code {...iconProps} />;
-  }
-};
-
-const SkillItem: React.FC<SkillItemProps> = ({ name, level, index }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const segments = 10; // Total segments in the skill bar
-  const filledSegments = Math.floor(level / 10); // How many segments should be filled
-
-  // Animation state for filled segments
-  const [animatedFill, setAnimatedFill] = useState(0);
-
+const SkillLogo: React.FC<SkillLogoProps> = ({ name, logoUrl, index }) => {
   return (
     <div
-      className="glass-card p-4 rounded-lg animate-fade-in"
+      className="glass-card p-6 rounded-lg animate-fade-in hover:scale-105 transition-transform duration-300 flex flex-col items-center justify-center min-h-[120px]"
       style={{ animationDelay: `${0.1 * index}s` }}
-      onMouseEnter={() => {
-        setIsHovered(true);
-        // Animate segments filling one by one
-        let currentSegment = 0;
-        const interval = setInterval(() => {
-          if (currentSegment <= filledSegments) {
-            setAnimatedFill(currentSegment);
-            currentSegment++;
-          } else {
-            clearInterval(interval);
-          }
-        }, 100);
-      }}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        setAnimatedFill(0);
-      }}
     >
-      <div className="flex items-center gap-2 mb-2">
-        {getIconForSkill(name)}
-        <h3 className="font-medium">{name}</h3>
-      </div>
-      <div className="h-2 bg-secondary/20 rounded-full overflow-hidden flex">
-        {Array.from({ length: segments }).map((_, i) => (
-          <div
-            key={i}
-            className={cn(
-              "flex-1 h-full mx-0.5 first:ml-0 last:mr-0 rounded-full transition-all duration-300",
-              isHovered
-                ? i < animatedFill
-                  ? "bg-accent scale-y-110"
-                  : "bg-[#1c6666]"
-                : i < filledSegments
-                ? "bg-accent"
-                : "bg-[#1c6666]",
-              "border-r border-background/30" // Lighter border for better visibility
-            )}
-            style={{
-              transitionDelay: isHovered ? `${i * 80}ms` : "0ms",
-            }}
-          />
-        ))}
-      </div>
+      <img
+        src={logoUrl}
+        alt={`${name} logo`}
+        className="w-16 h-16 object-contain mb-2"
+        onError={(e) => {
+          e.currentTarget.src = `https://via.placeholder.com/64/0ea5e9/ffffff?text=${name.charAt(0)}`;
+        }}
+      />
+      <span className="text-sm text-center font-medium text-foreground/80">{name}</span>
     </div>
   );
 };
 
 const Skills = () => {
   const programmingLanguages = [
-    { name: "C++", level: 85 },
-    { name: "JavaScript", level: 80 },
-    { name: "Python", level: 70 },
-    { name: "Golang", level: 60 },
+    { 
+      name: "C++", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+    },
+    { 
+      name: "JavaScript", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+    },
+    { 
+      name: "Python", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+    },
+    { 
+      name: "Go", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg"
+    },
   ];
 
   const csFundamentals = [
-    { name: "Data Structures & Algorithms", level: 90 },
-    { name: "OOPs", level: 80 },
-    { name: "DBMS", level: 80 },
-    { name: "Operating Systems", level: 80 },
+    { 
+      name: "Data Structures", 
+      logoUrl: "https://img.icons8.com/color/96/data-structure.png"
+    },
+    { 
+      name: "OOP", 
+      logoUrl: "https://img.icons8.com/color/96/object.png"
+    },
+    { 
+      name: "Database", 
+      logoUrl: "https://img.icons8.com/color/96/database.png"
+    },
+    { 
+      name: "Operating System", 
+      logoUrl: "https://img.icons8.com/color/96/linux.png"
+    },
   ];
 
   const backendSkills = [
-    { name: "Node.js", level: 80 },
-    { name: "Django", level: 75 },
-    { name: "Flask", level: 70 },
+    { 
+      name: "Node.js", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+    },
+    { 
+      name: "Django", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+    },
+    { 
+      name: "Flask", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"
+    },
   ];
 
   const databases = [
-    { name: "MongoDB", level: 90 },
-    { name: "MySQL", level: 80 },
-    { name: "PostgresSQL", level: 80 },
-    { name: "MySQlite", level: 80 },
-    { name: "Elasticsearch", level: 70 },
+    { 
+      name: "MongoDB", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+    },
+    { 
+      name: "MySQL", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+    },
+    { 
+      name: "PostgreSQL", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+    },
+    { 
+      name: "SQLite", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"
+    },
+    { 
+      name: "Elasticsearch", 
+      logoUrl: "https://img.icons8.com/color/96/elasticsearch.png"
+    },
   ];
 
   const tools = [
-    { name: "Git & GitHub", level: 90 },
-    { name: "Postman", level: 85 },
-    { name: "MongoDB Atlas", level: 85 },
-    { name: "Termius", level: 70 },
+    { 
+      name: "Git", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+    },
+    { 
+      name: "GitHub", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+    },
+    { 
+      name: "Postman", 
+      logoUrl: "https://img.icons8.com/dusk/96/postman-api.png"
+    },
+    { 
+      name: "VS Code", 
+      logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+    },
   ];
 
   const integrations = [
-    { name: "Twilio", level: 80 },
-    { name: "Zapier", level: 80 },
+    { 
+      name: "Twilio", 
+      logoUrl: "https://img.icons8.com/color/96/twilio.png"
+    },
+    { 
+      name: "Zapier", 
+      logoUrl: "https://img.icons8.com/color/96/zapier.png"
+    },
   ];
 
   const ml = [
-    { name: "Generative AI (OpenAI APIs)", level: 85 },
-    { name: "Machine Learning", level: 60 },
+    { 
+      name: "OpenAI", 
+      logoUrl: "https://img.icons8.com/color/96/chatgpt.png"
+    },
+    { 
+      name: "Machine Learning", 
+      logoUrl: "https://img.icons8.com/color/96/artificial-intelligence.png"
+    },
   ];
 
   return (
@@ -195,15 +163,15 @@ const Skills = () => {
             { title: "Integrations", data: integrations },
           ].map((section, sectionIndex) => (
             <div key={section.title}>
-              <h3 className="text-xl font-semibold mb-4 text-accent">
+              <h3 className="text-xl font-semibold mb-6 text-accent">
                 {section.title}
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                 {section.data.map((skill, index) => (
-                  <SkillItem
+                  <SkillLogo
                     key={skill.name}
                     name={skill.name}
-                    level={skill.level}
+                    logoUrl={skill.logoUrl}
                     index={index + sectionIndex * 10}
                   />
                 ))}

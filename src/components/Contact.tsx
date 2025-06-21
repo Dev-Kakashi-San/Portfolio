@@ -55,13 +55,6 @@ const Contact = () => {
           />
           
           <ContactCard 
-            icon={<Phone size={24} className="text-accent" />}
-            title="Phone"
-            value="+91 6376844453"
-            href="tel:+916376844453"
-          />
-          
-          <ContactCard 
             icon={<Github size={24} className="text-accent" />}
             title="GitHub"
             value="github.com/dev-tushar-sh"

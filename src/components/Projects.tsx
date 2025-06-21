@@ -130,15 +130,15 @@ const Projects = () => {
       description:
         "As a backend developer, I led the development of critical features and system integrations.",
       bulletPoints: [
-        "Developed and deployed a comprehensive rating & review system, enabling structured user feedback and detailed analytics across multiple product categories.",
-        "Integrated Grafana, Elastic APM, and Metricbeat to implement a robust observability stack for performance monitoring, error tracking, and system diagnostics.",
-        "Automated WhatsApp and SMS communication pipelines using Twilio, Zapier, and Meta’s WABA, improving operational efficiency and user engagement.",
-        "Significantly optimized availability and search systems by leveraging Elasticsearch, resulting in faster query response times and better scalability.",
-        "Diagnosed and resolved Docker and server-side infrastructure issues, improving deployment stability and memory efficiency (e.g., preventing crashes from 4GB heap spikes).",
-        "Designed and built admin panel modules for managing reviews and generating real-time analytics dashboards for business stakeholders.",
-        "Integrated OpenAI APIs for intelligent content and image generation, streamlining blog creation and enriching the user experience dynamically.",
-        "Engineered real-time systems using WebSockets and scheduled cron jobs, enabling instant data updates and background task automation.",
-        "Built a real-time chatting dashboard that connects agents and clients, enabling seamless customer interaction via WhatsApp and internal tools.",
+        "Built and deployed a flexible rating & review system with detailed analytics.",
+        "Integrated Grafana, Elastic APM, and Metricbeat for full observability and monitoring.",
+        "Automated WhatsApp/SMS workflows via Twilio, Zapier, and Meta WABA APIs.",
+        "Optimized search and availability with Elasticsearch for faster and scalable results.",
+        "Resolved Docker and infra crashes, cutting 4GB+ heap spikes and improving stability.",
+        "Developed admin modules for managing reviews and real-time analytics dashboards.",
+        "Used OpenAI APIs to auto-generate blogs and dynamic image content.",
+        "Implemented WebSockets and cron jobs for live updates and background automation.",
+        "Built a real-time chat dashboard linking clients with agents over WhatsApp.",
       ],
       technologies: [
         "Node.js",
@@ -164,7 +164,7 @@ const Projects = () => {
       ],
       githubLink: "",
       demoLink: "",
-      imageSrc: "/public/fulls/Backend.png",
+      imageSrc: "/fulls/Backend.png",
     },
     {
       title: "E-Commerce Website",
@@ -180,7 +180,7 @@ const Projects = () => {
         "CSS",
       ],
       githubLink: "https://github.com/Dev-Tushar-sh/TKart-Ecommerce-Website",
-      imageSrc: "/public/fulls/01.png",
+      imageSrc: "/fulls/01.png",
     },
     {
       title: "Social Media Platform",
@@ -196,7 +196,7 @@ const Projects = () => {
       ],
       githubLink:
         "https://github.com/Dev-Tushar-sh/CosmoLinks-Social-Media-Website",
-      imageSrc: "/public/fulls/02.png",
+      imageSrc: "/fulls/02.png",
     },
     {
       title: "Movie Recommender System",
@@ -204,7 +204,7 @@ const Projects = () => {
         "A content-based recommendation system that suggests movies based on the description and genres of previously liked films. Implemented using machine learning techniques and libraries like Scikit-learn and Pandas. The user interface is built with Streamlit, making it fast to prototype and demo the ML pipeline. This project demonstrates my ability to work with ML models and deploy them via a lightweight web app.",
       technologies: ["Python", "Pandas", "Scikit-learn", "Streamlit", "NLP"],
       githubLink: "https://github.com/Dev-Tushar-sh/Movies-Recommender-System",
-      imageSrc: "/public/fulls/03.png",
+      imageSrc: "/fulls/03.png",
     },
     {
       title: "Virtual AI Desktop Assistant (VAIDA)",
@@ -232,7 +232,7 @@ const Projects = () => {
       ],
       githubLink:
         "https://github.com/Dev-Tushar-sh/Virtual-AI-Desktop-Assistant",
-      imageSrc: "/public/fulls/vaida.png",
+      imageSrc: "/fulls/vaida.png",
     },
   ];
 

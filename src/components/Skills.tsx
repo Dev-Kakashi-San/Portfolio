@@ -117,6 +117,10 @@ const Skills = () => {
       logoUrl: "/logos/postman.svg"
     },
     { 
+      name: "Termius", 
+      logoUrl: "/logos/termius.svg"
+    },
+    { 
       name: "VS Code", 
       logoUrl: "/logos/vscode.svg"
     },
